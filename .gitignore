@@ -1,0 +1,28 @@
+# Dépendances
+node_modules/
+
+# Build
+dist/
+*.tsbuildinfo
+
+# Master vidéo (53 Mo — au-delà du seuil d'alerte GitHub, à garder hors dépôt)
+app/kimix_video.mp4
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Éditeurs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Local
+*.local
+.env
+.env.*
+!.env.example

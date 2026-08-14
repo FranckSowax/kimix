@@ -1,0 +1,105 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10.2%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10.2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10.2%;
+    --primary: 0 0% 10.2%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10.2%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 29%;
+    --accent: 318 100% 91%;
+    --accent-foreground: 0 0% 10.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 91%;
+    --input: 0 0% 91%;
+    --ring: 0 0% 10.2%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-white text-kimix-ink font-sans antialiased;
+    letter-spacing: 0;
+    line-height: 1.55;
+  }
+
+  ::selection {
+    background: #FFD1F1;
+    color: #1A1A1A;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1A1A1A;
+    outline-offset: 2px;
+  }
+
+  input, textarea, select {
+    cursor: auto;
+  }
+
+  h1, h2, h3, .font-display {
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Surlignage pastel signature des titres */
+  .hl {
+    @apply inline-block rounded-[0.15em] px-[0.2em] py-[0.05em];
+  }
+  .hl-pink { background-color: #FFD1F1; }
+  .hl-cyan { background-color: #C9FCFF; }
+  .hl-grey { background-color: #B4B4B4; }
+
+  .container-kimix {
+    @apply mx-auto w-full max-w-[1400px] px-5 md:px-10;
+  }
+
+  .eyebrow {
+    @apply text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-kimix-soft;
+  }
+
+  .skeleton-shimmer {
+    background: linear-gradient(90deg, #F0F0F0 25%, #E0E0E0 50%, #F0F0F0 75%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .pause-on-hover:hover .marquee-track { animation-play-state: paused; }
+}
+
+/* Lenis recommandé : laisser le scroll natif géré par Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Curseur custom : uniquement sur pointeurs fins */
+@media (pointer: coarse) {
+  .kimix-cursor { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation-duration: 120s !important; }
+}

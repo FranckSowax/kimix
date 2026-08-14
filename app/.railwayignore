@@ -1,0 +1,9 @@
+# Rien de tout ça ne doit monter dans l'archive de déploiement
+node_modules/
+dist/
+
+# Master vidéo 53 Mo : la séquence servie est public/seq/, pas ce fichier
+kimix_video.mp4
+
+.DS_Store
+*.log
